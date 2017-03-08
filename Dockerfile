@@ -1,3 +1,14 @@
-FROM docker/whalesay:latest
-RUN apt-get -y update && apt-get install -y fortunes
-CMD /usr/games/fortune -a | cowsay && sleep 100 && /usr/games/fortune -a | cowsay && sleep 1000
+FROM alpine:3.3
+
+RUN apk update
+RUN apk add docker
+RUN apk add openrc
+RUN rc-update add docker boot
+
+ADD crontab.txt /crontab.txt
+COPY script.sh /script.sh
+COPY entry.sh /entry.sh
+RUN chmod 755 /script.sh /entry.sh
+RUN /usr/bin/crontab /crontab.txt
+
+CMD ["/entry.sh"]
