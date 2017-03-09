@@ -1,5 +1,7 @@
 #!/bin/sh
 
+docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
+
 while IFS=, read image deployment
 do
     echo "======================================================================"
