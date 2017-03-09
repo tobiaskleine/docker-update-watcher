@@ -3,7 +3,7 @@
 # start cron
 sleep 10
 
-docker login --username $DOCKER_USER --password $DOCKER_PASSWORD -e $DOCKER_EMAIL
+docker login --username $DOCKER_USER --password $DOCKER_PASSWORD -e $DOCKER_EMAIL 
 
 /script.sh
 

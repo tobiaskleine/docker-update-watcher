@@ -1,0 +1,2 @@
+startcoding/docker-integration-test:staging,docker-integration-test-staging
+startcoding/docker-integration-test:prod,docker-integration-test-prod
