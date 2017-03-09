@@ -1,4 +1,6 @@
-FROM alpine:3.3
+FROM wernight/kubectl:1.3.6
+
+USER root
 
 RUN apk update
 RUN apk add docker
@@ -14,4 +16,5 @@ COPY entry.sh /entry.sh
 RUN chmod 755 /script.sh /entry.sh
 RUN /usr/bin/crontab /crontab.txt
 
+ENTRYPOINT []
 CMD ["/entry.sh"]
